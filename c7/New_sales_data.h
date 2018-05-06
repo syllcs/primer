@@ -27,7 +27,8 @@ public:
 	Sales_data& combine(const Sales_data&);
 	string isbn() const {return bookNo;}
 private:
-	double avg_price() const {return units_sold ? revenue/units_sold : 0;}
+	double avg_price() const;
+	// {return units_sold ? revenue/units_sold : 0;}
 	
 	//other member
 	string bookNo;
@@ -41,6 +42,9 @@ Sales_data& Sales_data::combine(const Sales_data &rhs) {
 	return *this;
 }
 
+inline double Sales_data::avg_price() const {
+	return units_sold ? revenue/units_sold : 0;
+}
 istream& read(istream& is, Sales_data& item) {
 	double price = 0;
 	is >> item.bookNo >> item.units_sold >> price;
