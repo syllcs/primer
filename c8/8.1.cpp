@@ -1,4 +1,6 @@
 #include <iostream>
+#include <string>
+#include <sstream>
 using namespace std;
 
 istream& readfile(istream& ifs) {
@@ -12,5 +14,8 @@ istream& readfile(istream& ifs) {
 }
 
 int main() {
-	readfile(cin);
+	string s;
+	getline(cin, s);
+	istringstream iss(s);
+	readfile(iss);
 }
